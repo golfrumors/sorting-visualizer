@@ -40,7 +40,7 @@ cmake .. && cmake --build .
 - [ ] Implement Bingo Sort Algorithm
 - [x] Implement ShellSort
 - [x] Implement TimSort
-- [ ] Implement Comb Sort
+- [x] Implement Comb Sort
 - [ ] Implement Pigeonhole Sort
 - [ ] Implement Cycle Sort
 - [ ] Implement Cocktail Sort
