@@ -1,6 +1,6 @@
 ### Prerequisites
 * This piece of code depends on the [SFML](https://www.sfml-dev.org/) libraries, in particular their graphics and audio components.
-* It depends as well on [CMake](https://cmake.org/) for the build.
+* It also depends on [CMake](https://cmake.org/) to compile and build.
 
 ### Compiling
 1. Clone the repo
