@@ -8,6 +8,7 @@ void SelectionSort::step(std::vector<int>& array, std::vector<sf::Color>& colors
         colors[m_sortingIndex] = sf::Color::Red;
         
         if (m_currentIndex < array.size()) {
+            incrementComparisons();
             colors[m_currentIndex] = sf::Color::Yellow;
             
             if (array[m_currentIndex] < array[m_minIndex]) {
@@ -17,6 +18,7 @@ void SelectionSort::step(std::vector<int>& array, std::vector<sf::Color>& colors
             }
             
             m_currentIndex++;
+            incrementArrayAccesses(1);
         } else {
             if (m_minIndex != m_sortingIndex) {
                 swap(array, colors, m_sortingIndex, m_minIndex);
@@ -39,6 +41,8 @@ void SelectionSort::reset() {
     m_currentIndex = 1;
     m_minIndex = 0;
     m_size = 0;
+    comparisons = 0;
+    arrayAccesses = 0;
 }
 
 bool SelectionSort::isFinished() const {

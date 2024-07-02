@@ -2,6 +2,7 @@
 #include "sorting_algorithms/bubble_sort.h"
 #include "sorting_algorithms/quick_sort.h"
 #include "sorting_algorithms/selection_sort.h"
+#include "sorting_algorithms/insertion_sort.h"
 #include <random>
 #include <algorithm>
 #include <chrono>
@@ -25,7 +26,7 @@ void Visualizer::createDropdown() {
         throw std::runtime_error("Failed to load font");
     }
 
-    algorithmNames = {"Bubble Sort", "Quick Sort", "Selection Sort"};
+    algorithmNames = {"Bubble Sort", "Quick Sort", "Selection Sort", "Insertion Sort"};
 
     dropdownBox.setSize(sf::Vector2f(200, 30));
     dropdownBox.setFillColor(sf::Color::White);
@@ -95,8 +96,7 @@ void Visualizer::drawBars() {
     for (int i = 0; i < arraySize; ++i) {
         sf::RectangleShape bar(sf::Vector2f(barWidth - 1, array[i] * 2));
         bar.setPosition(i * barWidth, window.getSize().y - array[i] * 2);
-        bar.setFillColor(isSortingComplete ?
-                         sf::Color::Green : barColors[i]);
+        bar.setFillColor(isSortingComplete ? sf::Color::Green : barColors[i]);
         window.draw(bar);
     }
 }
@@ -121,6 +121,7 @@ void Visualizer::sortStep() {
     } else {
         isSorting = false;
         isSortingComplete = true;
+        audioManager.stopSound();
     }
 }
 
@@ -135,8 +136,23 @@ void Visualizer::initializeSortingAlgorithm() {
         case SortingAlgorithmType::SelectionSort:
             currentAlgorithm = std::make_unique<SelectionSort>();
             break;
+        case SortingAlgorithmType::InsertionSort:
+            currentAlgorithm = std::make_unique<InsertionSort>();
+            break;
     }
     currentAlgorithm->reset();
+}
+
+void Visualizer::drawStats() {
+    std::string stats = "Comparisons: " + std::to_string(currentAlgorithm->getComparisons()) + 
+                        "\nArray Accesses: " + std::to_string(currentAlgorithm->getArrayAccesses());
+    sf::Text statsText;
+    statsText.setFont(font);
+    statsText.setString(stats);
+    statsText.setCharacterSize(20);
+    statsText.setFillColor(sf::Color::Red);
+    statsText.setPosition(300, window.getSize().y - 600);
+    window.draw(statsText);
 }
 
 void Visualizer::run() {
@@ -178,13 +194,16 @@ void Visualizer::run() {
 
         if (isSorting) {
             sortStep();
+            //@TODO : Implement this delay for fast sorting algorithms, beause others become unfathomably slow otherwise
+            //std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
 
         window.clear(sf::Color::Black);
         drawBars();
         drawDropdown();
+        drawStats();
         window.display();
 
-        //sf::sleep(timePerFrame - elapsed);
+        // sf::sleep(timePerFrame - elapsed);
     }
 }

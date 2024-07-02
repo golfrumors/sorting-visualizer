@@ -18,6 +18,7 @@ set(SOURCES
     src/sorting_algorithms/bubble_sort.cpp
     src/sorting_algorithms/quick_sort.cpp
     src/sorting_algorithms/selection_sort.cpp
+    src/sorting_algorithms/insertion_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
@@ -29,6 +30,7 @@ set(HEADERS
     src/sorting_algorithms/bubble_sort.h
     src/sorting_algorithms/quick_sort.h
     src/sorting_algorithms/selection_sort.h
+    src/sorting_algorithms/insertion_sort.h
     src/audio/audio_manager.h
     src/audio/oscillator.h
 )
@@ -38,6 +40,3 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # Link SFML libraries
 target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-audio)
-
-# Copy resources to build directory
-# file(COPY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_BINARY_DIR})

@@ -1,17 +1,17 @@
 #pragma once
 #include "sorting_algorithm.h"
 
-class BubbleSort : public SortingAlgorithm {
+class InsertionSort : public SortingAlgorithm {
 public:
-    BubbleSort() : m_i(0), m_j(0), isSortingComplete(false) {}
-
+    InsertionSort() : i(1), j(0), isSortingComplete(false) {}
+    
     void step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) override;
     void reset() override;
     bool isFinished() const override;
 
 private:
-    size_t m_i;
-    size_t m_j;
-    size_t m_size;
+    int i;
+    int j;
     bool isSortingComplete;
+    int key;
 };

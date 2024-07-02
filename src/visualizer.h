@@ -24,7 +24,8 @@ private:
     enum class SortingAlgorithmType {
         BubbleSort,
         QuickSort,
-        SelectionSort
+        SelectionSort,
+        InsertionSort
     };
 
     sf::RenderWindow window;
@@ -47,4 +48,5 @@ private:
     AudioManager audioManager;
 
     void initializeSortingAlgorithm();
+    void drawStats();
 };

@@ -15,6 +15,18 @@ public:
 
     void playSound(int value, int arraySize, AudioManager& audioManager);
 
+    int getComparisons() const { return comparisons; }
+
+    int getArrayAccesses() const { return arrayAccesses; }
+
 protected:
+    void incrementComparisons() { comparisons++; }
+
+    void incrementArrayAccesses(int count = 1) { arrayAccesses += count; }
+
     void swap(std::vector<int>& array, std::vector<sf::Color>& colors, int i, int j);
+
+    int comparisons = 0;
+    
+    int arrayAccesses = 0;    
 };

@@ -28,8 +28,10 @@ void QuickSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, Au
 int QuickSort::partition(std::vector<int>& array, std::vector<sf::Color>& colors, int low, int high, AudioManager& audioManager) {
     int pivot = array[high];
     int i = low - 1;
+    incrementArrayAccesses(1);
 
     for (int j = low; j < high; ++j) {
+        incrementComparisons();
         if (array[j] < pivot) {
             ++i;
             swap(array, colors, i, j);
@@ -38,12 +40,14 @@ int QuickSort::partition(std::vector<int>& array, std::vector<sf::Color>& colors
         } else {
             colors[j] = sf::Color::Yellow;
         }
+        incrementArrayAccesses(1);
     }
 
     swap(array, colors, i + 1, high);
     colors[i + 1] = sf::Color::Green;
     playSound(array[i + 1], array.size(), audioManager);
-
+    incrementArrayAccesses(2);
+    
     return i + 1;
 }
 
@@ -54,6 +58,8 @@ void QuickSort::reset() {
     m_left = 0;
     m_right = 0;
     isSortingComplete = false;
+    comparisons = 0;
+    arrayAccesses = 0;
 }
 
 bool QuickSort::isFinished() const {

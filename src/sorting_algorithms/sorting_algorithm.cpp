@@ -9,4 +9,5 @@ void SortingAlgorithm::playSound(int value, int arraySize, AudioManager& audioMa
 void SortingAlgorithm::swap(std::vector<int>& array, std::vector<sf::Color>& colors, int i, int j) {
     std::swap(array[i], array[j]);
     std::swap(colors[i], colors[j]);
+    incrementArrayAccesses(4);
 }
