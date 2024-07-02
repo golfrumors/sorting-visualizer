@@ -1,4 +1,4 @@
-#include "selection_sort.h"
+#include "headers/selection_sort.h"
 #include <algorithm>
 
 void SelectionSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) {

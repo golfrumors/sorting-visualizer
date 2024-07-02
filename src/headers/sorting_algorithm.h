@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "../audio/audio_manager.h"
+#include "audio_manager.h"
 
 class SortingAlgorithm {
 public:

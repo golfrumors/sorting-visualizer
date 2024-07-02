@@ -1,4 +1,4 @@
-#include "merge_sort.h"
+#include "headers/merge_sort.h"
 
 void MergeSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) {
     int n = array.size();

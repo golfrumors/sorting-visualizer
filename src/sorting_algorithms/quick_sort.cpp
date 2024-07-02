@@ -1,4 +1,4 @@
-#include "quick_sort.h"
+#include "headers/quick_sort.h"
 
 void QuickSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) {
     if (m_stack.empty() && m_left == 0 && m_right == 0) {

@@ -1,4 +1,4 @@
-#include "oscillator.h"
+#include "headers/oscillator.h"
 
 Oscillator::Oscillator()
     : m_frequency(440.f), m_amplitude(0.5f), m_phase(0.f) {

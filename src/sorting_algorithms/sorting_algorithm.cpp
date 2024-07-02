@@ -1,4 +1,4 @@
-#include "sorting_algorithm.h"
+#include "headers/sorting_algorithm.h"
 #include <algorithm>
 
 void SortingAlgorithm::playSound(int value, int arraySize, AudioManager& audioManager) {

@@ -8,9 +8,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
 # Include directories
+include_directories(${CMAKE_SOURCE_DIR}/src/headers)
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
-# Source files
+# Create executable
 set(SOURCES
     src/main.cpp
     src/visualizer.cpp
@@ -21,25 +22,25 @@ set(SOURCES
     src/sorting_algorithms/insertion_sort.cpp
     src/sorting_algorithms/merge_sort.cpp
     src/sorting_algorithms/heap_sort.cpp
+    src/sorting_algorithms/counting_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
 
-# Header files
 set(HEADERS
-    src/visualizer.h
-    src/sorting_algorithms/sorting_algorithm.h
-    src/sorting_algorithms/bubble_sort.h
-    src/sorting_algorithms/quick_sort.h
-    src/sorting_algorithms/selection_sort.h
-    src/sorting_algorithms/insertion_sort.h
-    src/sorting_algorithms/merge_sort.h
-    src/sorting_algorithms/heap_sort.h
-    src/audio/audio_manager.h
-    src/audio/oscillator.h
+    src/headers/visualizer.h
+    src/headers/sorting_algorithm.h
+    src/headers/bubble_sort.h
+    src/headers/quick_sort.h
+    src/headers/selection_sort.h
+    src/headers/insertion_sort.h
+    src/headers/merge_sort.h
+    src/headers/heap_sort.h
+    src/headers/counting_sort.h
+    src/headers/audio_manager.h
+    src/headers/oscillator.h
 )
 
-# Create executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # Link SFML libraries

@@ -4,8 +4,8 @@
 #include <string>
 #include <stack>
 #include <memory>
-#include "sorting_algorithms/sorting_algorithm.h"
-#include "audio/audio_manager.h"
+#include "sorting_algorithm.h"
+#include "audio_manager.h"
 
 class Visualizer {
 public:
@@ -27,7 +27,8 @@ private:
         SelectionSort,
         InsertionSort,
         MergeSort,
-        HeapSort
+        HeapSort,
+        CountingSort
     };
 
     sf::RenderWindow window;

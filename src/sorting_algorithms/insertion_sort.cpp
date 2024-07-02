@@ -1,4 +1,4 @@
-#include "insertion_sort.h"
+#include "headers/insertion_sort.h"
 
 void InsertionSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) {
     if (i < array.size()) {

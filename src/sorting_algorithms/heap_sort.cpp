@@ -1,4 +1,4 @@
-#include "heap_sort.h"
+#include "headers/heap_sort.h"
 
 void HeapSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) {
     if (heapSize == 0) {

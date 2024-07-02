@@ -26,7 +26,7 @@ cmake .. && cmake --build .
 - [ ] Make the access & comparisons text look better
 - [x] Implement Merge Sort
 - [x] Implement Heap Sort
-- [ ] Implement Counting Sort
+- [x] Implement Counting Sort
 - [ ] Implement Radix Sort
 - [ ] Implement Bucket Sort
 - [ ] Implement Bingo Sort Algorithm

@@ -1,4 +1,4 @@
-#include "bubble_sort.h"
+#include "headers/bubble_sort.h"
 #include <algorithm>
 
 void BubbleSort::step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) {
