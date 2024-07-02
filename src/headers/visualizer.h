@@ -30,7 +30,8 @@ private:
         HeapSort,
         CountingSort,
         RadixSort,
-        BucketSort
+        BucketSort,
+        ShellSort
     };
 
     sf::RenderWindow window;

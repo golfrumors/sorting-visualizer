@@ -30,7 +30,7 @@ cmake .. && cmake --build .
 - [x] Implement Radix Sort
 - [x] Implement Bucket Sort
 - [ ] Implement Bingo Sort Algorithm
-- [ ] Implement ShellSort
+- [x] Implement ShellSort
 - [ ] Implement TimSort
 - [ ] Implement Comb Sort
 - [ ] Implement Pigeonhole Sort
