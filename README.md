@@ -35,19 +35,9 @@ cmake .. && cmake --build .
 - [ ] Fix colors/visualizations for some algorithms, as they aren't very visual
 - [ ] Add terrible algorithms
 - [ ] Implement C++ default sorts (std::sort & std::stable_sort)
-- [x] Implement Merge Sort
-- [x] Implement Heap Sort
-- [x] Implement Counting Sort
-- [x] Implement Radix Sort
-- [x] Implement Bucket Sort
 - [ ] Implement Bingo Sort Algorithm
-- [x] Implement ShellSort
-- [x] Implement TimSort
-- [x] Implement Comb Sort
-- [x] Implement Pigeonhole Sort
-- [x] Implement Cycle Sort
-- [ ] Implement Cocktail Sort
-- [ ] Implement Strand Sort
+- [x] Implement Strand Sort
+    - [ ] Fix Strand Sort
 - [ ] Implement Bitonic Sort
 - [ ] Implement Pancake sorting
 - [ ] Implement BogoSort or Permutation Sort
