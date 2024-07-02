@@ -1,4 +1,7 @@
 #include "visualizer.h"
+#include "sorting_algorithms/bubble_sort.h"
+#include "sorting_algorithms/quick_sort.h"
+#include "sorting_algorithms/selection_sort.h"
 #include <random>
 #include <algorithm>
 #include <chrono>
@@ -7,18 +10,14 @@
 Visualizer::Visualizer(int width, int height, int size) 
     : window(sf::VideoMode(width, height), "Sorting Algorithm Visualizer"), 
       arraySize(size), 
-      currentAlgorithm(SortingAlgorithm::BubbleSort),
+      currentAlgorithmType(SortingAlgorithmType::BubbleSort),
       isDropdownOpen(false),
       isSorting(false),
-      sortingIndex(0),
-      sortingSubIndex(0),
-      quickSortLow(0),
-      quickSortHigh(size - 1),
-      quickSortPartitionIndex(0),
       isSortingComplete(false) {
     generateRandomArray();
     resetColors();
     createDropdown();
+    initializeSortingAlgorithm();
 }
 
 void Visualizer::createDropdown() {
@@ -62,8 +61,9 @@ void Visualizer::handleDropdown() {
             sf::FloatRect itemBounds(10, 40 + i * 30, 200, 30);
             if (itemBounds.contains(worldPos)) {
                 dropdownText.setString(algorithmNames[i]);
-                currentAlgorithm = static_cast<SortingAlgorithm>(i);
+                currentAlgorithmType = static_cast<SortingAlgorithmType>(i);
                 isDropdownOpen = false;
+                initializeSortingAlgorithm();
                 break;
             }
         }
@@ -115,106 +115,27 @@ void Visualizer::resetColors() {
 }
 
 void Visualizer::sortStep() {
-    switch (currentAlgorithm) {
-        case SortingAlgorithm::BubbleSort:
-            bubbleSortStep();
-            break;
-        case SortingAlgorithm::QuickSort:
-            quickSortStep();
-            break;
-        case SortingAlgorithm::SelectionSort:
-            selectionSortStep();
-            break;
-    }
-}
-
-void Visualizer::bubbleSortStep() {
-    if (sortingIndex < arraySize - 1) {
-        if (sortingSubIndex < arraySize - sortingIndex - 1) {
-            barColors[sortingSubIndex] = sf::Color::Red;
-            barColors[sortingSubIndex + 1] = sf::Color::Red;
-
-            if (array[sortingSubIndex] > array[sortingSubIndex + 1]) {
-                std::swap(array[sortingSubIndex], array[sortingSubIndex + 1]);
-            }
-
-            sortingSubIndex++;
-        } else {
-            barColors[arraySize - sortingIndex - 1] = sf::Color::Green;
-            sortingIndex++;
-            sortingSubIndex = 0;
-        }
+    if (!currentAlgorithm->isFinished()) {
+        currentAlgorithm->step(array, barColors, audioManager);
     } else {
         isSorting = false;
         isSortingComplete = true;
     }
 }
 
-void Visualizer::quickSortStep() {
-    if (quickSortLow < quickSortHigh) {
-        if (quickSortPartitionIndex == 0) {
-            quickSortPartitionIndex = quickSortPartition(quickSortLow, quickSortHigh);
-        } else {
-            int newHigh = quickSortPartitionIndex - 1;
-            quickSortStack.push(std::make_pair(quickSortPartitionIndex + 1, quickSortHigh));
-            quickSortHigh = newHigh;
-            quickSortPartitionIndex = 0;
-        }
-    } else if (!quickSortStack.empty()) {
-        std::tie(quickSortLow, quickSortHigh) = quickSortStack.top();
-        quickSortStack.pop();
-        quickSortPartitionIndex = 0;
-    } else {
-        isSorting = false;
-        isSortingComplete = true;
+void Visualizer::initializeSortingAlgorithm() {
+    switch (currentAlgorithmType) {
+        case SortingAlgorithmType::BubbleSort:
+            currentAlgorithm = std::make_unique<BubbleSort>();
+            break;
+        case SortingAlgorithmType::QuickSort:
+            currentAlgorithm = std::make_unique<QuickSort>();
+            break;
+        case SortingAlgorithmType::SelectionSort:
+            currentAlgorithm = std::make_unique<SelectionSort>();
+            break;
     }
-}
-
-int Visualizer::quickSortPartition(int low, int high) {
-    int pivot = array[high];
-    int i = low - 1;
-
-    for (int j = low; j < high; j++) {
-        barColors[j] = sf::Color::Red;
-        barColors[high] = sf::Color::Blue;
-
-        if (array[j] < pivot) {
-            i++;
-            std::swap(array[i], array[j]);
-            barColors[i] = sf::Color::Yellow;
-        }
-    }
-
-    std::swap(array[i + 1], array[high]);
-    barColors[i + 1] = sf::Color::Green;
-
-    return i + 1;
-}
-
-void Visualizer::selectionSortStep() {
-    if (sortingIndex < arraySize - 1) {
-        int minIdx = sortingIndex;
-        barColors[sortingIndex] = sf::Color::Red;
-
-        for (int i = sortingIndex + 1; i < arraySize; i++) {
-            barColors[i] = sf::Color::Yellow;
-            if (array[i] < array[minIdx]) {
-                barColors[minIdx] = sf::Color::White;
-                minIdx = i;
-                barColors[minIdx] = sf::Color::Red;
-            }
-        }
-
-        if (minIdx != sortingIndex) {
-            std::swap(array[sortingIndex], array[minIdx]);
-        }
-
-        barColors[sortingIndex] = sf::Color::Green;
-        sortingIndex++;
-    } else {
-        isSorting = false;
-        isSortingComplete = true;
-    }
+    currentAlgorithm->reset();
 }
 
 void Visualizer::run() {
@@ -226,6 +147,8 @@ void Visualizer::run() {
 
         sf::Event event;
         while (window.pollEvent(event)) {
+            if(isSortingComplete)
+                audioManager.stopSound();
             if (event.type == sf::Event::Closed)
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
@@ -235,13 +158,9 @@ void Visualizer::run() {
                 if (event.key.code == sf::Keyboard::Space) {
                     if(!isSortingComplete) {
                         isSorting = !isSorting;
+                        audioManager.stopSound();
                         if (isSorting) {
-                            sortingIndex = 0;
-                            sortingSubIndex = 0;
-                            quickSortLow = 0;
-                            quickSortHigh = arraySize - 1;
-                            quickSortPartitionIndex = 0;
-                            while (!quickSortStack.empty()) quickSortStack.pop();
+                            currentAlgorithm->reset();
                         }
                     }
                 } else if (event.key.code == sf::Keyboard::R) {
@@ -249,6 +168,8 @@ void Visualizer::run() {
                     isSorting = false;
                     isSortingComplete = false;
                     resetColors();
+                    audioManager.stopSound();
+                    currentAlgorithm->reset();
                 }
             }
         }
@@ -262,6 +183,6 @@ void Visualizer::run() {
         drawDropdown();
         window.display();
 
-        sf::sleep(timePerFrame - elapsed);
+        //sf::sleep(timePerFrame - elapsed);
     }
 }

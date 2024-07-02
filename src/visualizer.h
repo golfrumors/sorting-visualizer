@@ -3,6 +3,9 @@
 #include <vector>
 #include <string>
 #include <stack>
+#include <memory>
+#include "sorting_algorithms/sorting_algorithm.h"
+#include "audio/audio_manager.h"
 
 class Visualizer {
 public:
@@ -18,12 +21,7 @@ private:
     void resetColors();
     void sortStep();
 
-    void bubbleSortStep();
-    void quickSortStep();
-    void selectionSortStep();
-    int quickSortPartition(int low, int high);
-
-    enum class SortingAlgorithm {
+    enum class SortingAlgorithmType {
         BubbleSort,
         QuickSort,
         SelectionSort
@@ -33,7 +31,8 @@ private:
     std::vector<int> array;
     std::vector<sf::Color> barColors;
     int arraySize;
-    SortingAlgorithm currentAlgorithm;
+    SortingAlgorithmType currentAlgorithmType;
+    std::unique_ptr<SortingAlgorithm> currentAlgorithm;
 
     sf::Font font;
     sf::Text dropdownText;
@@ -44,11 +43,8 @@ private:
 
     bool isSorting;
     bool isSortingComplete;
-    int sortingIndex;
-    int sortingSubIndex;
 
-    int quickSortLow;
-    int quickSortHigh;
-    int quickSortPartitionIndex;
-    std::stack<std::pair<int, int>> quickSortStack;
+    AudioManager audioManager;
+
+    void initializeSortingAlgorithm();
 };
