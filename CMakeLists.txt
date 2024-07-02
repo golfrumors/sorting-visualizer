@@ -23,6 +23,8 @@ set(SOURCES
     src/sorting_algorithms/merge_sort.cpp
     src/sorting_algorithms/heap_sort.cpp
     src/sorting_algorithms/counting_sort.cpp
+    src/sorting_algorithms/radix_sort.cpp
+    src/sorting_algorithms/bucket_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
@@ -37,6 +39,8 @@ set(HEADERS
     src/headers/merge_sort.h
     src/headers/heap_sort.h
     src/headers/counting_sort.h
+    src/headers/radix_sort.h
+    src/headers/bucket_sort.h
     src/headers/audio_manager.h
     src/headers/oscillator.h
 )

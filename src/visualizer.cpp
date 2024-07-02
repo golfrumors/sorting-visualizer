@@ -6,6 +6,8 @@
 #include "headers/merge_sort.h"
 #include "headers/heap_sort.h"
 #include "headers/counting_sort.h"
+#include "headers/radix_sort.h"
+#include "headers/bucket_sort.h"
 #include <random>
 #include <algorithm>
 #include <chrono>
@@ -29,9 +31,9 @@ void Visualizer::createDropdown() {
         throw std::runtime_error("Failed to load font");
     }
 
-    algorithmNames = {"Bubble Sort", "Quick Sort", "Selection Sort", 
-    "Insertion Sort", "Merge Sort", "Heap Sort", 
-    "Counting Sort"};
+    algorithmNames = {"Bubble Sort", "Quick Sort", "Selection Sort",
+    "Insertion Sort", "Merge Sort", "Heap Sort",
+    "Counting Sort", "Radix Sort", "Bucket Sort"};
 
     dropdownBox.setSize(sf::Vector2f(200, 30));
     dropdownBox.setFillColor(sf::Color::White);
@@ -152,6 +154,12 @@ void Visualizer::initializeSortingAlgorithm() {
             break;
         case SortingAlgorithmType::CountingSort:
             currentAlgorithm = std::make_unique<CountingSort>();
+            break;
+        case SortingAlgorithmType::RadixSort:
+            currentAlgorithm = std::make_unique<RadixSort>();
+            break;
+        case SortingAlgorithmType::BucketSort:
+            currentAlgorithm = std::make_unique<BucketSort>();
             break;
     }
     currentAlgorithm->reset();

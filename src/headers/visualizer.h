@@ -28,7 +28,9 @@ private:
         InsertionSort,
         MergeSort,
         HeapSort,
-        CountingSort
+        CountingSort,
+        RadixSort,
+        BucketSort
     };
 
     sf::RenderWindow window;

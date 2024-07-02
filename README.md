@@ -27,7 +27,7 @@ cmake .. && cmake --build .
 - [x] Implement Merge Sort
 - [x] Implement Heap Sort
 - [x] Implement Counting Sort
-- [ ] Implement Radix Sort
+- [x] Implement Radix Sort
 - [ ] Implement Bucket Sort
 - [ ] Implement Bingo Sort Algorithm
 - [ ] Implement ShellSort
