@@ -27,6 +27,6 @@ protected:
     void swap(std::vector<int>& array, std::vector<sf::Color>& colors, int i, int j);
 
     int comparisons = 0;
-    
-    int arrayAccesses = 0;    
+
+    int arrayAccesses = 0;
 };

@@ -33,7 +33,8 @@ private:
         BucketSort,
         ShellSort,
         TimSort,
-        CombSort
+        CombSort,
+        PigeonholeSort
     };
 
     sf::RenderWindow window;

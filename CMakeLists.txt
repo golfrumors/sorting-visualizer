@@ -28,6 +28,7 @@ set(SOURCES
     src/sorting_algorithms/shell_sort.cpp
     src/sorting_algorithms/tim_sort.cpp
     src/sorting_algorithms/comb_sort.cpp
+    src/sorting_algorithms/pigeonhole_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
@@ -47,6 +48,7 @@ set(HEADERS
     src/headers/shell_sort.h
     src/headers/tim_sort.h
     src/headers/comb_sort.h
+    src/headers/pigeonhole_sort.h
     src/headers/audio_manager.h
     src/headers/oscillator.h
 )
