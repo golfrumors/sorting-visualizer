@@ -34,7 +34,8 @@ private:
         ShellSort,
         TimSort,
         CombSort,
-        PigeonholeSort
+        PigeonholeSort,
+        CycleSort
     };
 
     sf::RenderWindow window;

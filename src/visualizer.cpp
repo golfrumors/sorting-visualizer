@@ -12,6 +12,7 @@
 #include "headers/tim_sort.h"
 #include "headers/comb_sort.h"
 #include "headers/pigeonhole_sort.h"
+#include "headers/cycle_sort.h"
 #include <random>
 #include <algorithm>
 #include <chrono>
@@ -39,7 +40,7 @@ void Visualizer::createDropdown() {
     "Insertion Sort", "Merge Sort", "Heap Sort",
     "Counting Sort", "Radix Sort", "Bucket Sort",
     "Shell Sort", "Tim Sort", "Comb Sort",
-    "Pigeonhole Sort"};
+    "Pigeonhole Sort", "Cycle Sort"};
 
     dropdownBox.setSize(sf::Vector2f(200, 30));
     dropdownBox.setFillColor(sf::Color::White);
@@ -178,6 +179,9 @@ void Visualizer::initializeSortingAlgorithm() {
             break;
         case SortingAlgorithmType::PigeonholeSort:
             currentAlgorithm = std::make_unique<PigeonholeSort>();
+            break;
+        case SortingAlgorithmType::CycleSort:
+            currentAlgorithm = std::make_unique<CycleSort>();
             break;
     }
     currentAlgorithm->reset();

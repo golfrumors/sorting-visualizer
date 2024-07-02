@@ -45,7 +45,7 @@ cmake .. && cmake --build .
 - [x] Implement TimSort
 - [x] Implement Comb Sort
 - [x] Implement Pigeonhole Sort
-- [ ] Implement Cycle Sort
+- [x] Implement Cycle Sort
 - [ ] Implement Cocktail Sort
 - [ ] Implement Strand Sort
 - [ ] Implement Bitonic Sort
