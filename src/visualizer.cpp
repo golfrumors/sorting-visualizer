@@ -34,7 +34,7 @@ Visualizer::Visualizer(int width, int height, int size)
 }
 
 void Visualizer::createDropdown() {
-    if (!font.loadFromFile("arial.ttf")) {
+    if (!font.loadFromFile("../fonts/arial.ttf")) {
         throw std::runtime_error("Failed to load font");
     }
 
