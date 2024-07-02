@@ -7,16 +7,20 @@
 ```sh
 git clone https://github.com/golfrumors/sorting-visualizer
 ```
-2. Tweak settings as needed
-3. In the root directory, create a new folder to hold the executable
+2. Cd into the appropriate folder
+```sh
+cd sorting-visualizer
+```
+3. Tweak settings as needed
+4. In the root directory, create a new folder to hold the executable
 ```sh
 mkdir build && cd build
 ```
-4. Compile the project using CMake
+5. Compile the project using CMake
 ```sh
 cmake .. && cmake --build .
 ```
-5. Run the executable
+6. Run the executable
 ```sh
 ./SortingVisualizer
 ```
