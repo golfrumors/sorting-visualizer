@@ -7,9 +7,9 @@
 #include <chrono>
 #include <thread>
 
-Visualizer::Visualizer(int width, int height, int size) 
-    : window(sf::VideoMode(width, height), "Sorting Algorithm Visualizer"), 
-      arraySize(size), 
+Visualizer::Visualizer(int width, int height, int size)
+    : window(sf::VideoMode(width, height), "Sorting Algorithm Visualizer"),
+      arraySize(size),
       currentAlgorithmType(SortingAlgorithmType::BubbleSort),
       isDropdownOpen(false),
       isSorting(false),
@@ -95,7 +95,8 @@ void Visualizer::drawBars() {
     for (int i = 0; i < arraySize; ++i) {
         sf::RectangleShape bar(sf::Vector2f(barWidth - 1, array[i] * 2));
         bar.setPosition(i * barWidth, window.getSize().y - array[i] * 2);
-        bar.setFillColor(isSortingComplete ? sf::Color::Green : barColors[i]);
+        bar.setFillColor(isSortingComplete ?
+                         sf::Color::Green : barColors[i]);
         window.draw(bar);
     }
 }
@@ -151,7 +152,8 @@ void Visualizer::run() {
                 audioManager.stopSound();
             if (event.type == sf::Event::Closed)
                 window.close();
-            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+            if (event.type == sf::Event::MouseButtonPressed &&
+                event.mouseButton.button == sf::Mouse::Left) {
                 handleDropdown();
             }
             if (event.type == sf::Event::KeyPressed) {
@@ -173,7 +175,7 @@ void Visualizer::run() {
                 }
             }
         }
-        
+
         if (isSorting) {
             sortStep();
         }
