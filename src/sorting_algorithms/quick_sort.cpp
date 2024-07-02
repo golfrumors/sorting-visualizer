@@ -32,6 +32,7 @@ int QuickSort::partition(std::vector<int>& array, std::vector<sf::Color>& colors
 
     for (int j = low; j < high; ++j) {
         incrementComparisons();
+        colors[j] = sf::Color::Red;
         if (array[j] < pivot) {
             ++i;
             swap(array, colors, i, j);

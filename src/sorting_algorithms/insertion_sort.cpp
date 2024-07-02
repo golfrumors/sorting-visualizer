@@ -6,6 +6,8 @@ void InsertionSort::step(std::vector<int>& array, std::vector<sf::Color>& colors
         incrementArrayAccesses(1);
         j = i - 1;
 
+        colors[i] = sf::Color::Red;
+
         while (j >= 0 && array[j] > key) {
             incrementComparisons();
             array[j + 1] = array[j];

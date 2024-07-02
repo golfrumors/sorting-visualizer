@@ -25,7 +25,9 @@ private:
         BubbleSort,
         QuickSort,
         SelectionSort,
-        InsertionSort
+        InsertionSort,
+        MergeSort,
+        HeapSort
     };
 
     sf::RenderWindow window;

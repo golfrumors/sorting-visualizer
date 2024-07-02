@@ -3,6 +3,8 @@
 #include "sorting_algorithms/quick_sort.h"
 #include "sorting_algorithms/selection_sort.h"
 #include "sorting_algorithms/insertion_sort.h"
+#include "sorting_algorithms/merge_sort.h"
+#include "sorting_algorithms/heap_sort.h"
 #include <random>
 #include <algorithm>
 #include <chrono>
@@ -26,7 +28,7 @@ void Visualizer::createDropdown() {
         throw std::runtime_error("Failed to load font");
     }
 
-    algorithmNames = {"Bubble Sort", "Quick Sort", "Selection Sort", "Insertion Sort"};
+    algorithmNames = {"Bubble Sort", "Quick Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Heap Sort"};
 
     dropdownBox.setSize(sf::Vector2f(200, 30));
     dropdownBox.setFillColor(sf::Color::White);
@@ -138,6 +140,12 @@ void Visualizer::initializeSortingAlgorithm() {
             break;
         case SortingAlgorithmType::InsertionSort:
             currentAlgorithm = std::make_unique<InsertionSort>();
+            break;
+        case SortingAlgorithmType::MergeSort:
+            currentAlgorithm = std::make_unique<MergeSort>();
+            break;
+        case SortingAlgorithmType::HeapSort:
+            currentAlgorithm = std::make_unique<HeapSort>();
             break;
     }
     currentAlgorithm->reset();

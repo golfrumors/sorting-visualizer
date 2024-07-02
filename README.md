@@ -24,8 +24,8 @@ cmake .. && cmake --build .
 ## TODO List
 - [ ] Add delays to individual sorting aglorithms
 - [ ] Make the access & comparisons text look better
-- [ ] Implement Merge Sort
-- [ ] Implement Heap Sort
+- [x] Implement Merge Sort
+- [x] Implement Heap Sort
 - [ ] Implement Counting Sort
 - [ ] Implement Radix Sort
 - [ ] Implement Bucket Sort

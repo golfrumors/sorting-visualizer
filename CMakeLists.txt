@@ -19,6 +19,8 @@ set(SOURCES
     src/sorting_algorithms/quick_sort.cpp
     src/sorting_algorithms/selection_sort.cpp
     src/sorting_algorithms/insertion_sort.cpp
+    src/sorting_algorithms/merge_sort.cpp
+    src/sorting_algorithms/heap_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
@@ -31,6 +33,8 @@ set(HEADERS
     src/sorting_algorithms/quick_sort.h
     src/sorting_algorithms/selection_sort.h
     src/sorting_algorithms/insertion_sort.h
+    src/sorting_algorithms/merge_sort.h
+    src/sorting_algorithms/heap_sort.h
     src/audio/audio_manager.h
     src/audio/oscillator.h
 )
