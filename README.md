@@ -1,3 +1,7 @@
+## Getting Started
+Once the project is compiled and the binary is ran, one can start/pause the sort by pressing space.
+Once the sorting complete, or interrupted, one can regenerate and reshuffle the array by pressing r.
+
 ### Prerequisites
 * This piece of code depends on the [SFML](https://www.sfml-dev.org/) libraries, in particular their graphics and audio components.
 * It also depends on [CMake](https://cmake.org/) to compile and build.

@@ -32,7 +32,8 @@ private:
         RadixSort,
         BucketSort,
         ShellSort,
-        TimSort
+        TimSort,
+        CombSort
     };
 
     sf::RenderWindow window;
