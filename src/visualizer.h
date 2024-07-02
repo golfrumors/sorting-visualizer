@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <string>
+#include <stack>
 
 class Visualizer {
 public:
@@ -8,27 +10,45 @@ public:
     void run();
 
 private:
+    void createDropdown();
+    void handleDropdown();
+    void drawDropdown();
+    void drawBars();
     void generateRandomArray();
-    void draw();
-    void bubbleSort();
-    void quickSort();
-    void quickSortHelper(int low, int high);
-    void selectionSort();
-    int partition(int low, int high);
     void resetColors();
-    void setColor(int index, sf::Color color);
+    void sortStep();
 
-    sf::RenderWindow window;
-    std::vector<int> array;
-    std::vector<sf::Color> barColors;
-    int arraySize;
+    void bubbleSortStep();
+    void quickSortStep();
+    void selectionSortStep();
+    int quickSortPartition(int low, int high);
 
-    enum class SortingAlgorithm
-    {
+    enum class SortingAlgorithm {
         BubbleSort,
         QuickSort,
         SelectionSort
     };
 
-    SortingAlgorithm currentAlgorithm = SortingAlgorithm::BubbleSort;
+    sf::RenderWindow window;
+    std::vector<int> array;
+    std::vector<sf::Color> barColors;
+    int arraySize;
+    SortingAlgorithm currentAlgorithm;
+
+    sf::Font font;
+    sf::Text dropdownText;
+    sf::RectangleShape dropdownBox;
+    std::vector<std::string> algorithmNames;
+    bool isDropdownOpen;
+    std::vector<sf::Text> dropdownItems;
+
+    bool isSorting;
+    bool isSortingComplete;
+    int sortingIndex;
+    int sortingSubIndex;
+
+    int quickSortLow;
+    int quickSortHigh;
+    int quickSortPartitionIndex;
+    std::stack<std::pair<int, int>> quickSortStack;
 };
