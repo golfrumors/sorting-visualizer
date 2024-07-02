@@ -22,30 +22,29 @@ cmake .. && cmake --build .
 ```
 
 ## TODO List
-- [] Add delays to individual sorting aglorithms
-- [] Make the access & comparisons text look better
-- [] Implement Merge Sort
-- [] Implement Heap Sort
-- [] Implement Counting Sort
-- [] Implement Radix Sort
-- [] Implement Bucket Sort
-- [] Implement Bingo Sort Algorithm
-- [] Implement ShellSort
-- [] Implement TimSort
-- [] Implement Comb Sort
-- [] Implement Pigeonhole Sort
-- [] Implement Cycle Sort
-- [] Implement Cocktail Sort
-- [] Implement Strand Sort
-- [] Implement Bitonic Sort
-- [] Implement Pancake sorting
-- [] Implement BogoSort or Permutation Sort
-- [] Implement Gnome Sort
-- [] Implement Sleep Sort – The King of Laziness
-- [] Implement Structure Sorting in C++
-- [] Implement Stooge Sort
-- [] Implement Tag Sort (To get both sorted and original)
-- [] Implement Tree Sort
-- [] Implement Odd-Even Sort / Brick Sort
-- [] Implement 3-way Merge Sort
-
+- [ ] Add delays to individual sorting aglorithms
+- [ ] Make the access & comparisons text look better
+- [ ] Implement Merge Sort
+- [ ] Implement Heap Sort
+- [ ] Implement Counting Sort
+- [ ] Implement Radix Sort
+- [ ] Implement Bucket Sort
+- [ ] Implement Bingo Sort Algorithm
+- [ ] Implement ShellSort
+- [ ] Implement TimSort
+- [ ] Implement Comb Sort
+- [ ] Implement Pigeonhole Sort
+- [ ] Implement Cycle Sort
+- [ ] Implement Cocktail Sort
+- [ ] Implement Strand Sort
+- [ ] Implement Bitonic Sort
+- [ ] Implement Pancake sorting
+- [ ] Implement BogoSort or Permutation Sort
+- [ ] Implement Gnome Sort
+- [ ] Implement Sleep Sort – The King of Laziness
+- [ ] Implement Structure Sorting in C++
+- [ ] Implement Stooge Sort
+- [ ] Implement Tag Sort (To get both sorted and original)
+- [ ] Implement Tree Sort
+- [ ] Implement Odd-Even Sort / Brick Sort
+- [ ] Implement 3-way Merge Sort
