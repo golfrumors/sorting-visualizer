@@ -32,6 +32,9 @@ cmake .. && cmake --build .
 ## TODO List
 - [ ] Add delays to individual sorting aglorithms
 - [ ] Make the access & comparisons text look better
+- [ ] Fix colors/visualizations for some algorithms, as they aren't very visual
+- [ ] Add terrible algorithms
+- [ ] Implement C++ default sorts (std::sort & std::stable_sort)
 - [x] Implement Merge Sort
 - [x] Implement Heap Sort
 - [x] Implement Counting Sort
