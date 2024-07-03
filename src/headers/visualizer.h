@@ -40,7 +40,8 @@ private:
         StrandSort,
         BitonicSort,
         PancakeSort,
-        BogoSort
+        BogoSort,
+        GnomeSort
     };
 
     sf::RenderWindow window;

@@ -44,7 +44,7 @@ cmake .. && cmake --build .
 - [ ] Fix Shell Sort, as for now it keeps comparing the array forever and never flags it as being done properly
 - [x] Implement Pancake sorting
 - [x] Implement BogoSort or Permutation Sort
-- [ ] Implement Gnome Sort
+- [x] Implement Gnome Sort
 - [ ] Implement Sleep Sort – The King of Laziness
 - [ ] Implement Structure Sorting in C++
 - [ ] Implement Stooge Sort
