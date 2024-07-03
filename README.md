@@ -35,10 +35,13 @@ cmake .. && cmake --build .
 - [ ] Fix colors/visualizations for some algorithms, as they aren't very visual
 - [ ] Add terrible algorithms
 - [ ] Implement C++ default sorts (std::sort & std::stable_sort)
+- [ ] Make bucket sort more visual
 - [ ] Implement Bingo Sort Algorithm
 - [x] Implement Strand Sort
     - [ ] Fix Strand Sort
-- [ ] Implement Bitonic Sort
+- [x] Implement Bitonic Sort
+    - [ ] Fix Bitonic Sort
+- [ ] Fix Shell Sort, as for now it keeps comparing the array forever and never flags it as being done properly
 - [ ] Implement Pancake sorting
 - [ ] Implement BogoSort or Permutation Sort
 - [ ] Implement Gnome Sort

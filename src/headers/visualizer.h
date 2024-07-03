@@ -37,7 +37,8 @@ private:
         PigeonholeSort,
         CycleSort,
         CocktailSort,
-        StrandSort
+        StrandSort,
+        BitonicSort
     };
 
     sf::RenderWindow window;

@@ -49,4 +49,3 @@ void ShellSort::reset() {
 bool ShellSort::isFinished() const {
     return isSortingComplete;
 }
-

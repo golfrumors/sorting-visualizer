@@ -15,4 +15,3 @@ private:
     int i;
     int j;
 };
-

@@ -1,22 +1,29 @@
 #pragma once
 #include "sorting_algorithm.h"
+#include <vector>
 #include <list>
 
 class StrandSort : public SortingAlgorithm {
 public:
-    StrandSort() : isSortingComplete(false), currentIndex(0), phase(0) {}
+    StrandSort();
 
     void step(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager) override;
     void reset() override;
     bool isFinished() const override;
 
 private:
-    bool isSortingComplete;
-    int currentIndex;
-    int phase; // 0 - extracting sublist, 1 - merging sublist
-    std::list<int> output;
-    std::list<int> sublist;
+    enum class State {
+        INITIALIZE,
+        EXTRACT_STRAND,
+        MERGE_STRAND,
+        FINISHED
+    };
 
-    void extractSublist(std::vector<int>& array, std::vector<sf::Color>& colors, AudioManager& audioManager);
-    void merge(std::list<int>& output, std::list<int>& sublist);
+    State m_state;
+    std::vector<int> m_input;
+    std::vector<int> m_output;
+    std::list<std::vector<int>> m_strands;
+
+    void extractStrand();
+    void mergeStrands();
 };
