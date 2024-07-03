@@ -17,6 +17,7 @@
 #include "headers/strand_sort.h"
 #include "headers/bitonic_sort.h"
 #include "headers/pancake_sort.h"
+#include "bogo_sort.h"
 #include <random>
 #include <algorithm>
 #include <chrono>
@@ -45,7 +46,8 @@ void Visualizer::createDropdown() {
     "Counting Sort", "Radix Sort", "Bucket Sort",
     "Shell Sort", "Tim Sort", "Comb Sort",
     "Pigeonhole Sort", "Cycle Sort", "Cocktail Sort",
-    "Strand Sort", "Bitonic Sort", "Pancake Sort"};
+    "Strand Sort", "Bitonic Sort", "Pancake Sort",
+    "Bogo Sort"};
 
     dropdownBox.setSize(sf::Vector2f(200, 30));
     dropdownBox.setFillColor(sf::Color::White);
@@ -199,6 +201,9 @@ void Visualizer::initializeSortingAlgorithm() {
             break;
         case SortingAlgorithmType::PancakeSort:
             currentAlgorithm = std::make_unique<PancakeSort>();
+            break;
+        case SortingAlgorithmType::BogoSort:
+            currentAlgorithm = std::make_unique<BogoSort>();
             break;
     }
     currentAlgorithm->reset();

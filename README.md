@@ -43,7 +43,7 @@ cmake .. && cmake --build .
     - [ ] Fix Bitonic Sort
 - [ ] Fix Shell Sort, as for now it keeps comparing the array forever and never flags it as being done properly
 - [x] Implement Pancake sorting
-- [ ] Implement BogoSort or Permutation Sort
+- [x] Implement BogoSort or Permutation Sort
 - [ ] Implement Gnome Sort
 - [ ] Implement Sleep Sort – The King of Laziness
 - [ ] Implement Structure Sorting in C++
