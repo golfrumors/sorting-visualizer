@@ -33,6 +33,7 @@ set(SOURCES
     src/sorting_algorithms/cocktail_sort.cpp
     src/sorting_algorithms/strand_sort.cpp
     src/sorting_algorithms/bitonic_sort.cpp
+    src/sorting_algorithms/pancake_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
@@ -57,6 +58,7 @@ set(HEADERS
     src/headers/cocktail_sort.h
     src/headers/strand_sort.h
     src/headers/bitonic_sort.h
+    src/headers/pancake_sort.h
     src/headers/audio_manager.h
     src/headers/oscillator.h
 )
