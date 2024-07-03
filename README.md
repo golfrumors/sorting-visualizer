@@ -45,9 +45,8 @@ cmake .. && cmake --build .
 - [x] Implement Pancake sorting
 - [x] Implement BogoSort or Permutation Sort
 - [x] Implement Gnome Sort
-- [ ] Implement Sleep Sort – The King of Laziness
-- [ ] Implement Structure Sorting in C++
-- [ ] Implement Stooge Sort
+- [x] Implement Stooge Sort
+    -[ ] I know it's super slow by design, but this is disgusting, rewowrk it
 - [ ] Implement Tag Sort (To get both sorted and original)
 - [ ] Implement Tree Sort
 - [ ] Implement Odd-Even Sort / Brick Sort

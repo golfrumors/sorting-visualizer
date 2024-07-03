@@ -41,7 +41,8 @@ private:
         BitonicSort,
         PancakeSort,
         BogoSort,
-        GnomeSort
+        GnomeSort,
+        StoogeSort
     };
 
     sf::RenderWindow window;

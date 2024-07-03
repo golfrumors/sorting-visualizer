@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(SortingVisualizer)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find SFML
@@ -36,6 +36,7 @@ set(SOURCES
     src/sorting_algorithms/pancake_sort.cpp
     src/sorting_algorithms/bogo_sort.cpp
     src/sorting_algorithms/gnome_sort.cpp
+    src/sorting_algorithms/stooge_sort.cpp
     src/audio/audio_manager.cpp
     src/audio/oscillator.cpp
 )
@@ -63,6 +64,7 @@ set(HEADERS
     src/headers/pancake_sort.h
     src/headers/bogo_sort.h
     src/headers/gnome_sort.h
+    src/headers/stooge_sort.h
     src/headers/audio_manager.h
     src/headers/oscillator.h
 )
