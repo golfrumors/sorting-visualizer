@@ -46,7 +46,7 @@ cmake .. && cmake --build .
 - [x] Implement BogoSort or Permutation Sort
 - [x] Implement Gnome Sort
 - [x] Implement Stooge Sort
-    -[ ] I know it's super slow by design, but this is disgusting, rewowrk it
+    - [ ] I know it's super slow by design, but this is disgusting, rewowrk it
 - [ ] Implement Tag Sort (To get both sorted and original)
 - [ ] Implement Tree Sort
 - [ ] Implement Odd-Even Sort / Brick Sort
